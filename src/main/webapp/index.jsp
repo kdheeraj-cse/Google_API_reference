@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>API Reference</title>
 </head>
 <body>
 
+<script type="text/javascript" src="xlib/jquery/jquery-2.1.4.min.js"></script>
 </body>
 </html>
