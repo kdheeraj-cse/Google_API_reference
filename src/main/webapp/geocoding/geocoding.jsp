@@ -13,10 +13,10 @@
 <title>Geocoding</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="xlib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<link href="image/icon-api.gif" rel="icon">
+<link href="../xlib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="../image/icon-api.gif" rel="icon">
 <!-- Custom CSS -->
-<link href="xlib/bootstrap-3.3.5/css/1-col-portfolio.css"
+<link href="../xlib/bootstrap-3.3.5/css/1-col-portfolio.css"
 	rel="stylesheet">
 <style>
       #map {
@@ -47,7 +47,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp">Google API's</a>
+				<a class="navbar-brand" href="../index.jsp">Google API's</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
@@ -109,12 +109,12 @@
 	<!-- /.container -->
 
 	<!-- jQuery -->
-	<script type="text/javascript" src="xlib/jquery/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../xlib/jquery/jquery-2.1.4.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script type="text/javascript"
-		src="xlib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/geoLocScript.js"></script>
+		src="../xlib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="geoLocScript.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
 </body>
 
