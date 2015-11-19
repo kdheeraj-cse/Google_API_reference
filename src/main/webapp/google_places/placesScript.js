@@ -11,16 +11,17 @@ function showPosition(position){
 }
 
 function getNearPlaces() {
+	$("#placeMsg").hide();
 	var address = $("#queryAddress").val();
-	var type = $("#queryName").val();
-	var name = $("#queryType").val();
-	var radius = $("#queryRadius").val();
+	var type = $("#queryName").val()==""?"":$("#queryName").val();
+	var name = $("#queryType").val()==""?"":$("#queryType").val();
+	var radius = $("#queryRadius").val()==""?0:$("#queryRadius").val();
 	if(address == ""){
 		//get current location lat lng
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(showPosition);
 		} else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
+			placeMsg.innerHTML = "Geolocation is not supported by this browser.";
 		}
 	}else{
 		$.ajax({
@@ -39,6 +40,7 @@ function getNearPlaces() {
 	$.ajax({
 		url : "http://localhost:7070/GoogleAPIRef/rest/gapi/getGooglePlace?lat="+lat+"&lng="+lng+"&radius="+radius+"&address="+address+"&type="+type+"&name="+name,
 		success : function(result) {
+			console.log(result);
 			initializeMap(result,lat,lng,radius);
 		}
 	});
@@ -78,24 +80,31 @@ function initializeMap(result,lattitude,longitude,radius) {
 			position:myCenter,
 			icon:icon
 		});
-		marker.setMap(map);
-
 		var infowindow = new google.maps.InfoWindow({
 			content:outputPlaces[i].name
 		});
+		//infowindow.open(map, marker);
+		marker.set('data',outputPlaces[i]);
+		marker.addListener('click',function(){
+			showDetails(this);
+		});
+		marker.setMap(map);
 
-		infowindow.open(map,marker);
 	}
 	
 	  var cityCircle = new google.maps.Circle({
 	      strokeColor: '#FF0000',
 	      strokeOpacity: 0.8,
 	      strokeWeight: 2,
-	      fillColor: '#FF0000',
-	      fillOpacity: 0.35,
 	      map: map,
 	      center: {lat:Number(lattitude),lng:Number(longitude)},
 	      radius: Number(radius)
 	    });
 }
 
+function showDetails(val){
+	$("#placeMsg").show();
+	console.log(JSON.stringify(val.data));
+	$("#locName").html(val.data.name);
+	$("#locVicinity").html(val.data.vicinity);
+}

@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body onload="getNearPlaces()">
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -92,7 +92,12 @@
 				<br>
 				<button class="btn btn-primary" onclick="getNearPlaces()">Get
 					places</button><br><br>
-				<div id="coordinatesMsg">
+				<div id="placeMsg" style="display: none">
+				Location Details<br>
+				<table class="table-striped">
+				<tr><td>Name &nbsp</td><td><span id="locName"></span></tr>
+				<tr><td>Vicinity&nbsp</td><td><span id="locVicinity"></span></tr>
+				</table>
 				</div>
 			</div>
 		</div>
